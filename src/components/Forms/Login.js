@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Redirect } from "react-router-dom";
-import { Formik } from "formik";
+import { Formik, ErrorMessage } from "formik";
 import Input from "../Input";
 import Button from "../Button";
 import { useLazyQuery } from "@apollo/react-hooks";
@@ -140,6 +140,7 @@ export default function FormLogin(props) {
             <Spinner color={props.color}></Spinner>
           ) : (
             <form onSubmit={handleSubmit}>
+              
               <Input
                 value={values.Email}
                 label="Enter your email"
@@ -150,6 +151,7 @@ export default function FormLogin(props) {
                 onBlur={handleBlur}
                 color={props.color}
               />
+           
 
               <Input
                 value={values.Password}
@@ -161,7 +163,8 @@ export default function FormLogin(props) {
                 onBlur={handleBlur}
                 color={props.color}
               />
-              <Button color={props.color} type="submit" block>
+              
+              <Button color={props.color} type="submit" id='btn-submit' block>
                 {" "}
                 SIGN IN{" "}
               </Button>
